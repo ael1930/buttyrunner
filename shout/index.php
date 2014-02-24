@@ -27,32 +27,34 @@ if(count( $_POST) > 0)
 	$result->close();
 		
 	// Create the new order	
-	$order_id = uniqid("2");
+	$buttyrun_id = uniqid("2");
 	$collect = DateTime::createFromFormat('d/m/Y H:i', $_POST["collect_date"] . ' ' . $_POST["collect_time"]);
 	$deadline = DateTime::createFromFormat('d/m/Y H:i', $_POST["collect_date"] . ' ' . $_POST["collect_time"]);
 	$deadlineInterval = new DateInterval('PT' . $_POST["deadline"] . 'M');
 	$deadline->sub($deadlineInterval);
-	$mysqli->query('INSERT INTO buttyrun (id, user_id, vendor, collect, deadline) VALUES ("' . $order_id . '", "' . $user_id . '", "' . $_POST['vendor'] . '", "' . $collect->format('Y-m-d H:i:s') . '", "' . $deadline->format('Y-m-d H:i:s') . '")');
+	$mysqli->query('INSERT INTO buttyrun (id, user_id, vendor, collect, deadline) VALUES ("' . $buttyrun_id . '", "' . $user_id . '", "' . $_POST['vendor'] . '", "' . $collect->format('Y-m-d H:i:s') . '", "' . $deadline->format('Y-m-d H:i:s') . '")');
 	
 	// Add My Item
+	$butty_id = uniqid("3");
+	$mysqli->query('INSERT INTO butty (id, user_id, buttyrun_id, product) VALUES ("' . $butty_id . '", "' . $user_id . '", "' . $buttyrun_id . '", "' . trim($_POST["product"]) . '")');
 	
 	$mysqli->close();
 	
 	// Send email to organiser
 	$subject = 'Your Butty Run to ' . trim($_POST['vendor']) . ' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']); 
 	$headers = 'From: noreply@buttyrunner.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
-	$message = 'Hi ' . trim($_POST['name']) . ','. "\r\n\r\n" . 'You\'re going to ' . trim($_POST['vendor']) .' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']) . '.' . "\r\n\r\n" . 'The ButtyList is available at the link below.'. "\r\n\r\n" . $baseUrl . 'list/?' . $order_id . "\r\n\r\n" . 'Enjor your food!' . "\r\n\r\n" . '--' . "\r\n". 'ButtyRunner.com' . "\r\n". 'Follow us on Twitter at http://twitter.com/buttyrunner'; 	
+	$message = 'Hi ' . trim($_POST['name']) . ','. "\r\n\r\n" . 'You\'re going to ' . trim($_POST['vendor']) .' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']) . '.' . "\r\n\r\n" . 'The ButtyList is available at the link below.'. "\r\n\r\n" . $baseUrl . 'list/?' . $buttyrun_id . "\r\n\r\n" . 'Enjor your food!' . "\r\n\r\n" . '--' . "\r\n". 'ButtyRunner.com' . "\r\n". 'Follow us on Twitter at http://twitter.com/buttyrunner'; 	
 	mail(trim($_POST['email']), $subject, $message, $headers);
 	
 	// Send email to invetees	
 	$subject = 'ButtyRun to ' . trim($_POST['vendor']) . ' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']);	
-	$message = 'Hi,'. "\r\n\r\n" . 'I\'m going to ' . trim($_POST['vendor']) . ' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']) . '.' . "\r\n\r\n" . 'You can place your order at the link below until ' . $deadline->format('H:i') . '.'. "\r\n\r\n" . $baseUrl . 'order/?' . $order_id . "\r\n\r\n" . trim($_POST['name']) . "\r\n\r\n" . '--' . "\r\n". 'ButtyRunner.com' . "\r\n". 'Follow us on Twitter at http://twitter.com/buttyrunner';	
+	$message = 'Hi,'. "\r\n\r\n" . 'I\'m going to ' . trim($_POST['vendor']) . ' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']) . '.' . "\r\n\r\n" . 'You can place your order at the link below until ' . $deadline->format('H:i') . '.'. "\r\n\r\n" . $baseUrl . 'order/?' . $buttyrun_id . "\r\n\r\n" . trim($_POST['name']) . "\r\n\r\n" . '--' . "\r\n". 'ButtyRunner.com' . "\r\n". 'Follow us on Twitter at http://twitter.com/buttyrunner';	
 	$headers = 'From: '. trim($_POST['email']) . "\r\n" . 'X-Mailer: PHP/' . phpversion();
 	$invitees = explode("\r\n", trim($_POST['shout']));
 	foreach($invitees as $invite){
 		mail(trim($invite), $subject, $message, $headers);
 	}	
-	header('Location: ' . $baseUrl . 'list/?' . $order_id);
+	header('Location: ' . $baseUrl . 'list/?' . $buttyrun_id);
 	exit();
 }
 ?><!DOCTYPE html>
@@ -127,9 +129,9 @@ if(count( $_POST) > 0)
 									    </div>
 										  
   					                    <div class="form-group">
-  					                      <label for="forMe" class="col-lg-2 control-label">For me</label>
+  					                      <label for="product" class="col-lg-2 control-label">For me</label>
   					                      <div class="col-lg-10">
-  					                        <textarea class="form-control" rows="3" id="forMe" name="forMe"></textarea>
+  					                        <textarea class="form-control" rows="3" id="product" name="product"></textarea>
   					                        <span class="help-block">What are you having?</span>
   					                      </div>
   					                    </div>
