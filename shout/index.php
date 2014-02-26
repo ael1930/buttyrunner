@@ -41,20 +41,20 @@ if(count( $_POST) > 0)
 	$mysqli->close();
 	
 	// Send email to organiser
-	$subject = 'Your Butty Run to ' . trim($_POST['vendor']) . ' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']); 
+	$subject = 'Your ButtyRun to ' . trim($_POST['vendor']) . ' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']); 
 	$headers = 'From: noreply@buttyrunner.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
-	$message = 'Hi ' . trim($_POST['name']) . ','. "\r\n\r\n" . 'You\'re going to ' . trim($_POST['vendor']) .' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']) . '.' . "\r\n\r\n" . 'The ButtyList is available at the link below.'. "\r\n\r\n" . $baseUrl . 'list/?' . $buttyrun_id . "\r\n\r\n" . 'Enjor your food!' . "\r\n\r\n" . '--' . "\r\n". 'ButtyRunner.com' . "\r\n". 'Follow us on Twitter at http://twitter.com/buttyrunner'; 	
+	$message = 'Hi ' . trim($_POST['name']) . ','. "\r\n\r\n" . 'You\'re going to ' . trim($_POST['vendor']) .' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']) . '.' . "\r\n\r\n" . 'The ButtyList is available at the link below.'. "\r\n\r\n" . $baseUrl . 'list/?b=' . $buttyrun_id . "\r\n\r\n" . 'Enjor your food!' . "\r\n\r\n" . '--' . "\r\n". 'ButtyRunner.com' . "\r\n". 'Follow us on Twitter at http://twitter.com/buttyrunner'; 	
 	mail(trim($_POST['email']), $subject, $message, $headers);
 	
 	// Send email to invetees	
-	$subject = 'ButtyRun to ' . trim($_POST['vendor']) . ' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']);	
-	$message = 'Hi,'. "\r\n\r\n" . 'I\'m going to ' . trim($_POST['vendor']) . ' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']) . '.' . "\r\n\r\n" . 'You can place your order at the link below until ' . $deadline->format('H:i') . '.'. "\r\n\r\n" . $baseUrl . 'order/?' . $buttyrun_id . "\r\n\r\n" . trim($_POST['name']) . "\r\n\r\n" . '--' . "\r\n". 'ButtyRunner.com' . "\r\n". 'Follow us on Twitter at http://twitter.com/buttyrunner';	
+	$subject = 'There\'s a ButtyRun to ' . trim($_POST['vendor']) . ' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']);	
+	$message = 'Hi,'. "\r\n\r\n" . 'I\'m going to ' . trim($_POST['vendor']) . ' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']) . '.' . "\r\n\r\n" . 'You can place your order at the link below until ' . $deadline->format('H:i') . '.'. "\r\n\r\n" . $baseUrl . 'order/?b=' . $buttyrun_id . "\r\n\r\n" . trim($_POST['name']) . "\r\n\r\n" . '--' . "\r\n". 'ButtyRunner.com' . "\r\n". 'Follow us on Twitter at http://twitter.com/buttyrunner';	
 	$headers = 'From: '. trim($_POST['email']) . "\r\n" . 'X-Mailer: PHP/' . phpversion();
 	$invitees = explode("\r\n", trim($_POST['shout']));
 	foreach($invitees as $invite){
 		mail(trim($invite), $subject, $message, $headers);
 	}	
-	header('Location: ' . $baseUrl . 'list/?' . $buttyrun_id);
+	header('Location: ' . $baseUrl . 'list/?b=' . $buttyrun_id);
 	exit();
 }
 ?><!DOCTYPE html>
