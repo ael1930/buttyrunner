@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+require_once('../inc/config.php');
+?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -30,6 +32,19 @@
 		            <div class="col-lg-6">
 		              <h1>List</h1>
 		              <p class="lead">Here's the Order</p>
+					  <ul>
+						  <?php
+						  $mysqli = new mysqli($db_server, $db_user, $db_password, $db_database);
+						  $result = $mysqli->query('SELECT a.id, `name`, `product` FROM `buttyrun` AS a  INNER JOIN `butty` as b ON a.id = b.buttyrun_id  INNER JOIN `user` as c ON b.user_id = c.id WHERE a.id = "' . $_GET["b"] . '" ORDER BY b.updated ASC');
+						  
+						  while ($row = $result->fetch_assoc())
+						  {
+							  printf ("<li>%s - %s</li>\n", $row["name"], $row["product"]);
+						  }
+						  $result->free();
+						  $mysqli->close();
+						  ?>
+					  </ul>
 		            </div>
 		          </div>
 		        </div>
