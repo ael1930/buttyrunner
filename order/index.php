@@ -1,4 +1,41 @@
-<!DOCTYPE html>
+<?php
+require_once('../inc/config.php');
+
+if(count( $_POST) > 0)
+{
+	// Store order in database
+	$mysqli = new mysqli($db_server, $db_user, $db_password, $db_database);
+	
+	// If email address doesn't already exist, create the user
+	$result = $mysqli->query('SELECT id, name FROM user WHERE email = "' . trim($_POST['email']) . '" LIMIT 1');
+	if($result->num_rows > 0)
+	{
+		$row = $result->fetch_row();
+		$user_id = $row['0'];
+		
+		// If the user's name has changed (why?) keep the data current
+		if($row['1'] != trim($_POST['name']))
+		{
+			$mysqli->query('UPDATE user SET name = "' . $_POST['name'] . '" WHERE id = "' . $row[0] . '"');
+		}
+	}
+	else
+	{
+		$user_id = uniqid("1");
+		$mysqli->query('INSERT INTO user (id, name, email) VALUES ("' . $user_id . '", "' . trim($_POST['name']) . '", "' . trim($_POST['email']) . '")');		
+	}
+	$result->close();
+	
+	// Add My Item
+	$butty_id = uniqid("3");
+	$mysqli->query('INSERT INTO butty (id, user_id, buttyrun_id, product) VALUES ("' . $butty_id . '", "' . $user_id . '", "' . $_POST["buttyrun_id"] . '", "' . trim($_POST["product"]) . '")');
+	
+	$mysqli->close();
+	
+	header('Location: ' . $baseUrl . 'order/thanks');
+	exit();
+}
+?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -30,6 +67,47 @@
 		            <div class="col-lg-6">
 		              <h1>Order</h1>
 		              <p class="lead">Place your order here</p>
+					  
+					  <div class="well">
+					                <form class="bs-example form-horizontal" method="post" action="./">
+										<input type="hidden" name="buttyrun_id" value="<?=$_GET["b"]?>"/>
+					                  <fieldset>
+					                    <legend>I would like</legend>
+										
+					                    <div class="form-group">
+					                      <label for="name" class="col-lg-2 control-label">Name</label>
+					                      <div class="col-lg-10">
+					                        <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+					                      </div>
+					                    </div>
+										
+					                    <div class="form-group">
+					                      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+					                      <div class="col-lg-10">
+					                        <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email">
+					                      </div>
+					                    </div>
+					                    
+					                
+  					                    <div class="form-group">
+  					                      <label for="product" class="col-lg-2 control-label">For me</label>
+  					                      <div class="col-lg-10">
+  					                        <textarea class="form-control" rows="3" id="product" name="product"></textarea>
+  					                        <span class="help-block">What are you having?</span>
+  					                      </div>
+  					                    </div>
+										
+					                    <div class="form-group">
+					                      <div class="col-lg-10 col-lg-offset-2">
+					                        <button class="btn btn-default">Cancel</button>
+					                        <button type="submit" class="btn btn-primary">Submit</button>
+					                      </div>
+					                    </div>
+										
+									</fieldset>
+								</form>
+							</div
+					  
 		            </div>
 		          </div>
 		        </div>
