@@ -1,9 +1,15 @@
 <?php
-//$baseUrl = 'http://www.buttyrunner.com/';
-$baseUrl = 'http://buttyrunner.istacey.eu.local/';
-
+/*
+$baseUrl = 'http://www.buttyrunner.com/';
 $db_server = '127.0.0.1';
 $db_user = 'buttyrunner';
 $db_password = 'fVhxUZGM8auZ8neK';
 $db_database = 'buttyrunner';	
+*/
+
+$baseUrl = 'http://buttyrunner.istacey.eu.local/';
+$db_server = 'localhost';
+$db_database = 'buttyrun_butty';	
+$db_user = 'buttyrun_butty';
+$db_password = 'RbzaxBtVcAyQ';
 ?>

@@ -55,9 +55,9 @@ if(count( $_POST) > 0)
     <![endif]-->
   </head>
   <body>
-	  
 	  <?php
-	  include '../inc/navigation.php';
+	  include_once("../inc/ga.php");
+	  include_once("../inc/navigation.php");
 	  ?>
 		  
 		  <div class="container">

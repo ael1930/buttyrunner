@@ -1,6 +1,5 @@
 <?php
 require_once('../../inc/config.php');
-}
 ?><!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,9 +20,9 @@ require_once('../../inc/config.php');
     <![endif]-->
   </head>
   <body>
-	  
 	  <?php
-	  include '../../inc/navigation.php';
+	  include_once("../../inc/ga.php");
+	  include_once("../../inc/navigation.php");
 	  ?>
 		  
 		  <div class="container">

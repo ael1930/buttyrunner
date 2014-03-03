@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ButtyRunner (v0.0.1 not even a beta yet)</title>
+    <title>Terms and Conditions | ButtyRunner (v0.0.1 not even a beta yet)</title>
 
     <!-- Bootstrap -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="bootstrap-theme.min.css"/>
+	
 	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,23 +20,24 @@
   </head>
   <body>
 	  <?php
-	  include_once("inc/ga.php");
-	  include_once("inc/navigation.php");
+	  include_once("../inc/ga.php");
+	  include_once("../inc/navigation.php");
 	  ?>
 		  
 	  <div class="container theme-showcase" role="main">
 	  <div class="jumbotron">
-		  <h1>Welcome to ButtyRunner</h1>
+		  <h1>Terms and Conditions</h1>
 		  <p class="lead">The easy way to organise the butty run.</p>
-		  <p><a href="/about" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
 	  </div>
+	  <h2>Description Title</h2>
+	  <p>Descriptive Text</p>
  	  </div>
-				 
-	  <?php
-	  include_once("inc/footer.php");
+  
+  	  <?php
+  	  include_once("../inc/footer.php");
 	  ?>
 		  
-		
+   
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

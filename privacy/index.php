@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sign up | ButtyRunner (v0.0.1 not even a beta yet)</title>
+    <title>Privacy Policy | ButtyRunner (v0.0.1 not even a beta yet)</title>
 
     <!-- Bootstrap -->
-	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="bootstrap-theme.min.css"/>
 	
 	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -18,27 +19,24 @@
     <![endif]-->
   </head>
   <body>
-	  
 	  <?php
-	  include '../inc/navigation.php';
+	  include_once("../inc/ga.php");
+	  include_once("../inc/navigation.php");
 	  ?>
 		  
-		  <div class="container">
-
-		        <div class="page-header" id="banner">
-		          <div class="row">
-		            <div class="col-lg-6">
-		              <h1>Sign Up</h1>
-		              <p class="lead">The easy way to organise the butty run.</p>
-		            </div>
-		          </div>
-		        </div>
-  	  	  	  <?php
-  	  	  	  include '../inc/footer.php';
-  	  	  	  ?>
+	  <div class="container theme-showcase" role="main">
+	  <div class="jumbotron">
+		  <h1>Privacy Policy</h1>
+		  <p class="lead">The easy way to organise the butty run.</p>
+	  </div>
+	  <h2>Description Title</h2>
+	  <p>Descriptive Text</p>
+ 	  </div>
+  
+  	  <?php
+  	  include_once("../inc/footer.php");
+	  ?>
 		  
-  	  		  </div>  
-	 
    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
