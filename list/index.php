@@ -6,9 +6,7 @@ require_once('../inc/config.php');
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>List | ButtyRunner (v0.0.1 not even a beta yet)</title>
-
-    <!-- Bootstrap -->
+    <title>List | ButtyRunner (alpha)</title> <!-- Bootstrap -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="bootstrap-theme.min.css"/>
 	

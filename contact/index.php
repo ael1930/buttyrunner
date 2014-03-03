@@ -1,14 +1,13 @@
-<?php
-require_once('../../inc/config.php');
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Order - Thanks! | ButtyRunner (alpha)</title> <!-- Bootstrap -->
+    <title>Contact | ButtyRunner (alpha)</title> <!-- Bootstrap -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="bootstrap-theme.min.css"/>
+	
 	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,25 +18,23 @@ require_once('../../inc/config.php');
   </head>
   <body>
 	  <?php
-	  include_once("../../inc/ga.php");
-	  include_once("../../inc/navigation.php");
+	  include_once("../inc/ga.php");
+	  include_once("../inc/navigation.php");
 	  ?>
 		  
-		  <div class="container">
-
-		        <div class="page-header" id="banner">
-		          <div class="row">
-		            <div class="col-lg-6">
-		              <h1>Order - Thanks!</h1>
-		              <p class="lead">Your Order has been placed.</p>
-		            </div>
-		          </div>
-		        </div>
-			</div>
-  	  	  	  
-	<?php
-	include_once("../../inc/footer.php");
-	?>
+	  <div class="container theme-showcase" role="main">
+	  <div class="jumbotron">
+		  <h1>Contact</h1>
+		  <p class="lead">I want to talk to you</p>
+	  </div>
+	  <h2>Drop me an email.</h2>
+	  <p>You can email me at <a href="mailto:info@buttyrunner.com">info@buttyrunner.com</a> with any questions.</p>
+ 	  </div>
+  
+  	  <?php
+  	  include_once("../inc/footer.php");
+	  ?>
+		  
    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

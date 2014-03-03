@@ -43,12 +43,12 @@ if(count( $_POST) > 0)
 	// Send email to organiser
 	$subject = 'Your ButtyRun to ' . trim($_POST['vendor']) . ' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']); 
 	$headers = 'From: noreply@buttyrunner.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
-	$message = 'Hi ' . trim($_POST['name']) . ','. "\r\n\r\n" . 'You\'re going to ' . trim($_POST['vendor']) .' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']) . '.' . "\r\n\r\n" . 'The ButtyList is available at the link below.'. "\r\n\r\n" . $baseUrl . 'list/?b=' . $buttyrun_id . "\r\n\r\n" . 'Enjor your food!' . "\r\n\r\n" . '--' . "\r\n". 'ButtyRunner.com' . "\r\n". 'Follow us on Twitter at http://twitter.com/buttyrunner'; 	
+	$message = 'Hi ' . trim($_POST['name']) . ','. "\r\n\r\n" . 'You\'re going to ' . trim($_POST['vendor']) .' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']) . '.' . "\r\n\r\n" . 'The ButtyList is available at the link below.'. "\r\n\r\n" . $baseUrl . 'list/?b=' . $buttyrun_id . "\r\n\r\n" . 'Enjor your food!' . "\r\n\r\n" . '--' . "\r\n". 'www.ButtyRunner.com' . "\r\n". 'Follow us on Twitter at http://twitter.com/buttyrunner'; 	
 	mail(trim($_POST['email']), $subject, $message, $headers);
 	
 	// Send email to invetees	
 	$subject = 'There\'s a ButtyRun to ' . trim($_POST['vendor']) . ' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']);	
-	$message = 'Hi,'. "\r\n\r\n" . 'I\'m going to ' . trim($_POST['vendor']) . ' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']) . '.' . "\r\n\r\n" . 'You can place your order at the link below until ' . $deadline->format('H:i') . '.'. "\r\n\r\n" . $baseUrl . 'order/?b=' . $buttyrun_id . "\r\n\r\n" . trim($_POST['name']) . "\r\n\r\n" . '--' . "\r\n". 'ButtyRunner.com' . "\r\n". 'Follow us on Twitter at http://twitter.com/buttyrunner';	
+	$message = 'Hi,'. "\r\n\r\n" . 'I\'m going to ' . trim($_POST['vendor']) . ' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']) . '.' . "\r\n\r\n" . 'You can place your order at the link below until ' . $deadline->format('H:i') . '.'. "\r\n\r\n" . $baseUrl . 'order/?b=' . $buttyrun_id . "\r\n\r\n" . trim($_POST['name']) . "\r\n\r\n" . '--' . "\r\n". 'www.ButtyRunner.com' . "\r\n". 'Follow us on Twitter at http://twitter.com/buttyrunner';	
 	$headers = 'From: '. trim($_POST['email']) . "\r\n" . 'X-Mailer: PHP/' . phpversion();
 	$invitees = explode("\r\n", trim($_POST['shout']));
 	foreach($invitees as $invite){
@@ -63,9 +63,7 @@ if(count( $_POST) > 0)
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>New ButtyRun | ButtyRunner (v0.0.1 not even a beta yet)</title>
-
-    <!-- Bootstrap -->
+    <title>New ButtyRun | ButtyRunner (alpha)</title> <!-- Bootstrap -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="bootstrap-theme.min.css"/>
 	
@@ -85,7 +83,6 @@ if(count( $_POST) > 0)
 		  
 		  <div class="container">
 		  <h1>New ButtyRun</h1>
-		  <p>sadasd</p>
 		  </div>
 		  
 		  <div class="container">
@@ -170,7 +167,7 @@ if(count( $_POST) > 0)
 		                </form>
 		              </div>
 				  </div>
-        		  <div class="col-md-4">.col-md-4</div>
+        		  <div class="col-md-4">Some ads will be here soon.</div>
       		</div>
 		</div>
 		  

@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Help | ButtyRunner (v0.0.1 not even a beta yet)</title>
-
-    <!-- Bootstrap -->
+    <title>Help | ButtyRunner (alpha)</title> <!-- Bootstrap -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="bootstrap-theme.min.css"/>
 	
@@ -27,10 +25,10 @@
 	  <div class="container theme-showcase" role="main">
 	  <div class="jumbotron">
 		  <h1>Help</h1>
-		  <p class="lead">The easy way to organise the butty run.</p>
+		  <p class="lead">How do I...?</p>
 	  </div>
-	  <h2>Description Title</h2>
-	  <p>Descriptive Text</p>
+	  <h2>Help</h2>
+	  <p>There'll be some help content appearing here soon as questions are asked. Use the <a href="/contact">contact page</a> to ask until then.</p>
  	  </div>
   
   	  <?php
