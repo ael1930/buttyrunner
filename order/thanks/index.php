@@ -9,8 +9,8 @@ require_once('../../inc/config.php');
     <title>Order - Thanks! | ButtyRunner (v0.0.1 not even a beta yet)</title>
 
     <!-- Bootstrap -->
-	<link rel="stylesheet" href="/css/bootstrap.min.css">
-	
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="bootstrap-theme.min.css"/>
 	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,12 +35,11 @@ require_once('../../inc/config.php');
 		            </div>
 		          </div>
 		        </div>
-  	  	  	  <?php
-  	  	  	  include '../../inc/footer.php';
-  	  	  	  ?>
-		  
-  	  		  </div>  
-	 
+			</div>
+  	  	  	  
+	<?php
+	include_once("../../inc/footer.php");
+	?>
    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

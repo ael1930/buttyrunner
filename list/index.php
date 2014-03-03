@@ -9,7 +9,8 @@ require_once('../inc/config.php');
     <title>List | ButtyRunner (v0.0.1 not even a beta yet)</title>
 
     <!-- Bootstrap -->
-	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="bootstrap-theme.min.css"/>
 	
 	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -37,6 +38,11 @@ require_once('../inc/config.php');
 						  $mysqli = new mysqli($db_server, $db_user, $db_password, $db_database);
 						  $result = $mysqli->query('SELECT a.id, `name`, `product` FROM `buttyrun` AS a  INNER JOIN `butty` as b ON a.id = b.buttyrun_id  INNER JOIN `user` as c ON b.user_id = c.id WHERE a.id = "' . $_GET["b"] . '" ORDER BY b.updated ASC');
 						  
+						  if(!$result)
+						  {
+						  	printf("Error: %s\n", $mysqli->error);
+						  }
+						  
 						  while ($row = $result->fetch_assoc())
 						  {
 							  printf ("<li>%s - %s</li>\n", $row["name"], $row["product"]);
@@ -48,14 +54,11 @@ require_once('../inc/config.php');
 		            </div>
 		          </div>
 		        </div>
-  	  	  	  <?php
-  	  	  	  include '../inc/footer.php';
-  	  	  	  ?>
-		  
-  	  		  </div>  
-	 
-   
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+			</div>
+	<?php
+	include_once("../inc/footer.php");
+	?>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>

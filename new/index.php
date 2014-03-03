@@ -96,14 +96,14 @@ if(count( $_POST) > 0)
 					                    <div class="form-group">
 					                      <label for="name" class="col-lg-2 control-label">Name</label>
 					                      <div class="col-lg-10">
-					                        <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+					                        <input type="text" class="form-control" id="name" placeholder="Your name" name="name">
 					                      </div>
 					                    </div>
 										
 					                    <div class="form-group">
-					                      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+					                      <label for="email" class="col-lg-2 control-label">Email</label>
 					                      <div class="col-lg-10">
-					                        <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email">
+					                        <input type="text" class="form-control" id="email" placeholder="Your email address" name="email">
 					                      </div>
 					                    </div>
 					                    
@@ -117,15 +117,10 @@ if(count( $_POST) > 0)
 					                    
 					                    <div class="form-group">
 					                      <label for="vendor" class="col-lg-2 control-label">Where</label>
-					                      <div class="col-lg-10">
-					                        <select class="form-control" id="vendor" name="vendor">
-												<option value="-1">Please select</option>
-											  <option>The Pantry</option>
-					                          <option>Costa</option>
-					                          <option>Subway</option>
-					                        </select>					                        
-					                      </div>
-									    </div>
+					                          <div class="col-lg-10">
+						                        <input type="text" class="form-control" id="vendor" placeholder="Where are you going?" name="vendor">
+						                      </div>
+					                    </div>
 										  
   					                    <div class="form-group">
   					                      <label for="product" class="col-lg-2 control-label">For me</label>
@@ -174,14 +169,11 @@ if(count( $_POST) > 0)
 		            </div>
 		          </div>
 		        </div>
-  	  	  	  <?php
-  	  	  	  include '../inc/footer.php';
-  	  	  	  ?>
-		  
-  	  		  </div>  
-			
-		
-	 
+			</div>
+
+	<?php
+	include_once("../inc/footer.php");
+	?>
    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

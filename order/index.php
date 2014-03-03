@@ -44,8 +44,8 @@ if(count( $_POST) > 0)
     <title>Order | ButtyRunner (v0.0.1 not even a beta yet)</title>
 
     <!-- Bootstrap -->
-	<link rel="stylesheet" href="/css/bootstrap.min.css">
-	
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="bootstrap-theme.min.css"/>
 	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -77,14 +77,14 @@ if(count( $_POST) > 0)
 					                    <div class="form-group">
 					                      <label for="name" class="col-lg-2 control-label">Name</label>
 					                      <div class="col-lg-10">
-					                        <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+					                        <input type="text" class="form-control" id="name" placeholder="Your name" name="name">
 					                      </div>
 					                    </div>
 										
 					                    <div class="form-group">
 					                      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
 					                      <div class="col-lg-10">
-					                        <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email">
+					                        <input type="text" class="form-control" id="inputEmail" placeholder="Your email address" name="email">
 					                      </div>
 					                    </div>
 					                    
@@ -111,14 +111,14 @@ if(count( $_POST) > 0)
 		            </div>
 		          </div>
 		        </div>
-  	  	  	  <?php
-  	  	  	  include '../inc/footer.php';
-  	  	  	  ?>
-		  
-  	  		  </div>  
-	 
+			</div>
+		</div>
+
+	<?php
+	include_once("../inc/footer.php");
+	?>
    
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
