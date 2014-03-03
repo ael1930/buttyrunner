@@ -60,20 +60,21 @@ if(count( $_POST) > 0)
 	  include_once("../inc/navigation.php");
 	  ?>
 		  
-		  <div class="container">
-
-		        <div class="page-header" id="banner">
-		          <div class="row">
-		            <div class="col-lg-6">
-		              <h1>Order</h1>
-		              <p class="lead">Place your order here</p>
+	  <div class="container">
+	  <h1>Your Order</h1>
+	  <p>sadasd</p>
+	  </div>
+	  
+	  <div class="container">
+		
+		  <div class="row">
+       		  <div class="col-md-8">
 					  
 					  <div class="well">
 					                <form class="bs-example form-horizontal" method="post" action="./">
 										<input type="hidden" name="buttyrun_id" value="<?=$_GET["b"]?>"/>
 					                  <fieldset>
-					                    <legend>I would like</legend>
-										
+					                    
 					                    <div class="form-group">
 					                      <label for="name" class="col-lg-2 control-label">Name</label>
 					                      <div class="col-lg-10">
@@ -107,12 +108,14 @@ if(count( $_POST) > 0)
 									</fieldset>
 								</form>
 							</div
-					  
-		            </div>
-		          </div>
-		        </div>
-			</div>
+					  </div>
+
+		
+				  </div>
+        		  <div class="col-md-4">.col-md-4</div>
+      		</div>
 		</div>
+		
 
 	<?php
 	include_once("../inc/footer.php");

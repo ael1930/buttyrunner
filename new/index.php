@@ -63,7 +63,7 @@ if(count( $_POST) > 0)
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>New | ButtyRunner (v0.0.1 not even a beta yet)</title>
+    <title>New ButtyRun | ButtyRunner (v0.0.1 not even a beta yet)</title>
 
     <!-- Bootstrap -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
@@ -84,92 +84,96 @@ if(count( $_POST) > 0)
 	  ?>
 		  
 		  <div class="container">
-
-		        <div class="page-header" id="banner">
-		          <div class="row">
-		            <div class="col-lg-6">
-		              <div class="well">
-					                <form class="bs-example form-horizontal" method="post" action="./">
-					                  <fieldset>
-					                    <legend>New Butty Run</legend>
-										
-					                    <div class="form-group">
-					                      <label for="name" class="col-lg-2 control-label">Name</label>
-					                      <div class="col-lg-10">
-					                        <input type="text" class="form-control" id="name" placeholder="Your name" name="name">
-					                      </div>
-					                    </div>
-										
-					                    <div class="form-group">
-					                      <label for="email" class="col-lg-2 control-label">Email</label>
-					                      <div class="col-lg-10">
-					                        <input type="text" class="form-control" id="email" placeholder="Your email address" name="email">
-					                      </div>
-					                    </div>
-					                    
-					                    <div class="form-group">
-					                      <label for="shout" class="col-lg-2 control-label">Shout</label>
-					                      <div class="col-lg-10">
-					                        <textarea class="form-control" rows="3" id="shout" name="shout"></textarea>
-					                        <span class="help-block">Enter the email addresses of the people you're shouting, one per line.</span>
-					                      </div>
-					                    </div>
-					                    
-					                    <div class="form-group">
-					                      <label for="vendor" class="col-lg-2 control-label">Where</label>
-					                          <div class="col-lg-10">
-						                        <input type="text" class="form-control" id="vendor" placeholder="Where are you going?" name="vendor">
-						                      </div>
-					                    </div>
-										  
-  					                    <div class="form-group">
-  					                      <label for="product" class="col-lg-2 control-label">For me</label>
-  					                      <div class="col-lg-10">
-  					                        <textarea class="form-control" rows="3" id="product" name="product"></textarea>
-  					                        <span class="help-block">What are you having?</span>
-  					                      </div>
-  					                    </div>
-										
-										<div class="form-group">
-											<label for="collect_date" class="col-lg-2 control-label">Date</label>
-  					                          <div class="col-lg-10">
-						                        <input type="text" class="form-control" id="collect_date" placeholder="dd/mm/yyyy" name="collect_date">
-	  											</div>
-											</div>
-											<div class="form-group">
-												<label for="collect_time" class="col-lg-2 control-label">Time</label>
-											<div class="col-lg-10">
-  						                        <input type="text" class="form-control" id="collect_time" placeholder="hh:mm" name="collect_time">
-	  											</div>
-										</div>
-										
-					                    <div class="form-group">
-					                      <label for="deadline" class="col-lg-2 control-label">Deadline</label>
-					                      <div class="col-lg-10">
-					                        <select class="form-control" id="deadline" name="deadline">
-											<option value="-1">Please select</option>
-											  <option value="5">5 minutes before</option>
-					                          <option value="15">15 minutes before</option>
-					                          <option value="30">30 minutes before</option>
-					                          <option value="60">1 hour before</option>
-					                          <option value="180">3 hours before</option>
-					                        </select>					                        
-					                      </div>
-									    </div>
-										  
-					                    <div class="form-group">
-					                      <div class="col-lg-10 col-lg-offset-2">
-					                        <button class="btn btn-default">Cancel</button>
-					                        <button type="submit" class="btn btn-primary">Submit</button>
-					                      </div>
-					                    </div>
-					                  </fieldset>
-					                </form>
-					              </div>
-		            </div>
-		          </div>
-		        </div>
-			</div>
+		  <h1>New ButtyRun</h1>
+		  <p>sadasd</p>
+		  </div>
+		  
+		  <div class="container">
+			
+			  <div class="row">
+        		  <div class="col-md-8">
+					  <div class="well">
+		                <form class="bs-example form-horizontal" method="post" action="./">
+		                  <fieldset>
+		                   	
+		                    <div class="form-group">
+		                      <label for="name" class="col-lg-2 control-label">Name</label>
+		                      <div class="col-lg-10">
+		                        <input type="text" class="form-control" id="name" placeholder="Your name" name="name">
+		                      </div>
+		                    </div>
+							
+		                    <div class="form-group">
+		                      <label for="email" class="col-lg-2 control-label">Email</label>
+		                      <div class="col-lg-10">
+		                        <input type="text" class="form-control" id="email" placeholder="Your email address" name="email">
+		                      </div>
+		                    </div>
+		                    
+		                    <div class="form-group">
+		                      <label for="shout" class="col-lg-2 control-label">Shout</label>
+		                      <div class="col-lg-10">
+		                        <textarea class="form-control" rows="3" id="shout" name="shout"></textarea>
+		                        <span class="help-block">Enter the email addresses of the people you're shouting, one per line.</span>
+		                      </div>
+		                    </div>
+		                    
+		                    <div class="form-group">
+		                      <label for="vendor" class="col-lg-2 control-label">Where</label>
+		                          <div class="col-lg-10">
+			                        <input type="text" class="form-control" id="vendor" placeholder="Where are you going?" name="vendor">
+			                      </div>
+		                    </div>
+							  
+		                    <div class="form-group">
+		                      <label for="product" class="col-lg-2 control-label">For me</label>
+		                      <div class="col-lg-10">
+		                        <textarea class="form-control" rows="3" id="product" name="product"></textarea>
+		                        <span class="help-block">What are you having?</span>
+		                      </div>
+		                    </div>
+							
+							<div class="form-group">
+								<label for="collect_date" class="col-lg-2 control-label">Date</label>
+		                          <div class="col-lg-10">
+			                        <input type="text" class="form-control" id="collect_date" placeholder="dd/mm/yyyy" name="collect_date">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="collect_time" class="col-lg-2 control-label">Time</label>
+								<div class="col-lg-10">
+			                        <input type="text" class="form-control" id="collect_time" placeholder="hh:mm" name="collect_time">
+									</div>
+							</div>
+							
+		                    <div class="form-group">
+		                      <label for="deadline" class="col-lg-2 control-label">Deadline</label>
+		                      <div class="col-lg-10">
+		                        <select class="form-control" id="deadline" name="deadline">
+								<option value="-1">Please select</option>
+								  <option value="5">5 minutes before</option>
+		                          <option value="15">15 minutes before</option>
+		                          <option value="30">30 minutes before</option>
+		                          <option value="60">1 hour before</option>
+		                          <option value="180">3 hours before</option>
+		                        </select>					                        
+		                      </div>
+						    </div>
+							  
+		                    <div class="form-group">
+		                      <div class="col-lg-10 col-lg-offset-2">
+		                        <button class="btn btn-default">Cancel</button>
+		                        <button type="submit" class="btn btn-primary">Submit</button>
+		                      </div>
+		                    </div>
+		                  </fieldset>
+		                </form>
+		              </div>
+				  </div>
+        		  <div class="col-md-4">.col-md-4</div>
+      		</div>
+		</div>
+		  
 
 	<?php
 	include_once("../inc/footer.php");
