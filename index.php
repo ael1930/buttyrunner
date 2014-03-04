@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ButtyRunner (v0.0.1 not even a beta yet)</title>
+    <title>ButtyRunner (alpha)</title>
 
     <!-- Bootstrap -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
@@ -25,9 +25,9 @@
 		  
 	  <div class="container theme-showcase" role="main">
 	  <div class="jumbotron">
-		  <h1>Welcome to ButtyRunner</h1>
+		  <h1>Welcome to ButtyRunner (alpha)</h1>
 		  <p class="lead">The easy way to organise the butty run.</p>
-		  <p><a href="/about" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+		  <p><a href="/about" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a> or <a href="/new" class="btn btn-primary btn-lg" role="button">New ButtyRun &raquo;</a></p>
 	  </div>
  	  </div>
 				 

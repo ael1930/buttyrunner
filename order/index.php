@@ -41,9 +41,7 @@ if(count( $_POST) > 0)
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Order | ButtyRunner (v0.0.1 not even a beta yet)</title>
-
-    <!-- Bootstrap -->
+    <title>Order | ButtyRunner (alpha)</title> <!-- Bootstrap -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="bootstrap-theme.min.css"/>
 	
@@ -62,7 +60,6 @@ if(count( $_POST) > 0)
 		  
 	  <div class="container">
 	  <h1>Your Order</h1>
-	  <p>sadasd</p>
 	  </div>
 	  
 	  <div class="container">
@@ -112,7 +109,7 @@ if(count( $_POST) > 0)
 
 		
 				  </div>
-        		  <div class="col-md-4">.col-md-4</div>
+        		  <div class="col-md-4">Some ads will be here soon.</div>
       		</div>
 		</div>
 		

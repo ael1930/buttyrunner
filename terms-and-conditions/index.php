@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Terms and Conditions | ButtyRunner (v0.0.1 not even a beta yet)</title>
-
-    <!-- Bootstrap -->
+    <title>Terms and Conditions | ButtyRunner (alpha)</title> <!-- Bootstrap -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="bootstrap-theme.min.css"/>
 	
@@ -27,10 +25,10 @@
 	  <div class="container theme-showcase" role="main">
 	  <div class="jumbotron">
 		  <h1>Terms and Conditions</h1>
-		  <p class="lead">The easy way to organise the butty run.</p>
+		  <p class="lead">Legal Stuff</p>
 	  </div>
-	  <h2>Description Title</h2>
-	  <p>Descriptive Text</p>
+	  <h2>To be completed</h2>
+	  <p>... but it goes without saying that all the usual things you read on pages like this apply here. No guarantees, no compensation for any loss, no commitments to anything, etc, etc.</p>
  	  </div>
   
   	  <?php
