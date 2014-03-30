@@ -1,4 +1,5 @@
 <?php
+$version = "0.0.2";
 /*
 $baseUrl = 'http://buttyrunner.istacey.eu.local/';
 $db_server = '127.0.0.1';
