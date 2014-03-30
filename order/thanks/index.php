@@ -8,7 +8,7 @@ require_once('../../inc/config.php');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Order - Thanks! | ButtyRunner (alpha)</title> <!-- Bootstrap -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="bootstrap-theme.min.css"/>
+	<link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
 	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,19 +22,16 @@ require_once('../../inc/config.php');
 	  include_once("../../inc/ga.php");
 	  include_once("../../inc/navigation.php");
 	  ?>
-		  
-		  <div class="container">
 
-		        <div class="page-header" id="banner">
-		          <div class="row">
-		            <div class="col-lg-6">
-		              <h1>Order - Thanks!</h1>
-		              <p class="lead">Your Order has been placed.</p>
-		            </div>
-		          </div>
-		        </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h1>Order - Thanks!</h1>
+				<p class="lead">Your Order has been placed.</p>
 			</div>
-  	  	  	  
+		</div>
+	</div>
+
 	<?php
 	include_once("../../inc/footer.php");
 	?>

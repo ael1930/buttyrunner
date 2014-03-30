@@ -43,17 +43,20 @@ if(count( $_POST) > 0)
 	// Send email to organiser
 	$subject = 'Your ButtyRun to ' . trim($_POST['vendor']) . ' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']); 
 	$headers = 'From: noreply@buttyrunner.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
-	$message = 'Hi ' . trim($_POST['name']) . ','. "\r\n\r\n" . 'You\'re going to ' . trim($_POST['vendor']) .' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']) . '.' . "\r\n\r\n" . 'The ButtyList is available at the link below.'. "\r\n\r\n" . $baseUrl . 'list/?b=' . $buttyrun_id . "\r\n\r\n" . 'Enjor your food!' . "\r\n\r\n" . '--' . "\r\n". 'www.ButtyRunner.com' . "\r\n". 'Follow us on Twitter at http://twitter.com/buttyrunner'; 	
+	$message = 'Hi ' . trim($_POST['name']) . ','. "\r\n\r\n" . 'You\'re going to ' . trim($_POST['vendor']) .' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']) . '.' . "\r\n\r\n" . 'The ButtyList is available at the link below.' . "\r\n\r\n" . $baseUrl . 'list/?b=' . $buttyrun_id . "\r\n\r\n" . 'Enjor your food!' . "\r\n\r\n" . '--' . "\r\n" . 'www.ButtyRunner.com' . "\r\n" . 'Follow us on Twitter at http://twitter.com/buttyrunner'; 	
 	mail(trim($_POST['email']), $subject, $message, $headers);
 	
 	// Send email to invetees	
 	$subject = 'There\'s a ButtyRun to ' . trim($_POST['vendor']) . ' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']);	
-	$message = 'Hi,'. "\r\n\r\n" . 'I\'m going to ' . trim($_POST['vendor']) . ' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']) . '.' . "\r\n\r\n" . 'You can place your order at the link below until ' . $deadline->format('H:i') . '.'. "\r\n\r\n" . $baseUrl . 'order/?b=' . $buttyrun_id . "\r\n\r\n" . trim($_POST['name']) . "\r\n\r\n" . '--' . "\r\n". 'www.ButtyRunner.com' . "\r\n". 'Follow us on Twitter at http://twitter.com/buttyrunner';	
+	$message = 'Hi,'. "\r\n\r\n" . 'I\'m going to ' . trim($_POST['vendor']) . ' on ' . trim($_POST['collect_date']) . ' at ' . trim($_POST['collect_time']) . '.' . "\r\n\r\n" . 'You can place your order at the link below until ' . $deadline->format('H:i') . '.' . "\r\n\r\n" . $baseUrl . 'order/?b=' . $buttyrun_id . "\r\n\r\n" . 'Has someone missed out? Simply forward this email to them and they can join in too.' . "\r\n\r\n" . trim($_POST['name']) . "\r\n\r\n" . '--' . "\r\n". 'www.ButtyRunner.com' . "\r\n" . 'Follow us on Twitter at http://twitter.com/buttyrunner';	
 	$headers = 'From: '. trim($_POST['email']) . "\r\n" . 'X-Mailer: PHP/' . phpversion();
 	$invitees = explode("\r\n", trim($_POST['shout']));
 	foreach($invitees as $invite){
-		mail(trim($invite), $subject, $message, $headers);
-	}	
+		if(!$devMode){
+			mail(trim($invite), $subject, $message, $headers);
+		}
+	}
+	
 	header('Location: ' . $baseUrl . 'list/?b=' . $buttyrun_id);
 	exit();
 }
@@ -65,7 +68,7 @@ if(count( $_POST) > 0)
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>New ButtyRun | ButtyRunner (alpha)</title> <!-- Bootstrap -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="bootstrap-theme.min.css"/>
+	<link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
 	
 	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -108,10 +111,10 @@ if(count( $_POST) > 0)
 		                    </div>
 		                    
 		                    <div class="form-group">
-		                      <label for="shout" class="col-lg-2 control-label">Shout</label>
+		                      <label for="shout" class="col-lg-2 control-label">Invite</label>
 		                      <div class="col-lg-10">
 		                        <textarea class="form-control" rows="3" id="shout" name="shout"></textarea>
-		                        <span class="help-block">Enter the email addresses of the people you're shouting, one per line.</span>
+		                        <span class="help-block">Enter the email addresses of the people you're inviting, one per line.</span>
 		                      </div>
 		                    </div>
 		                    
@@ -161,6 +164,7 @@ if(count( $_POST) > 0)
 		                      <div class="col-lg-10 col-lg-offset-2">
 		                        <button class="btn btn-default">Cancel</button>
 		                        <button type="submit" class="btn btn-primary">Submit</button>
+								<p style="font-size: 8px; margin-top: 10px;">* By clicking submit you agree to recieve emails from ButtyRunner for the purpose of running the system and a few other emails from us, certainly not from third parties though. You also take responsibilty for the emails generated to your invitees. We only store the email addresses of uses who've ordered via ButtyRun.</p>
 		                      </div>
 		                    </div>
 		                  </fieldset>

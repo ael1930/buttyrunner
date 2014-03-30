@@ -1,11 +1,32 @@
 <?php
 require_once('../inc/config.php');
+require_once('../inc/connectionOpen.php');
+
+if(count( $_GET) > 0)
+{
+		$result = $mysqli->query('SELECT * FROM buttyrun WHERE id = "' . $_GET['b'] . '"');
+		$row = $result->fetch_assoc();
+		
+		$vendor = $row["vendor"];
+		$collect = strtotime($row["collect"]);
+		$collect_date = date('d/m/Y', $collect);
+		$collect_time = date('H:i', $collect);
+		$deadline = strtotime($row["deadline"]);
+		$deadline_date = date('d/m/Y', $deadline);
+		$deadline_time = date('H:i', $deadline);
+		
+		$result->close();
+		
+		if(mktime() < $deadline){
+			require_once("../inc/connectionClose.php");
+	
+			header('Location: ' . $baseUrl . 'order/too-late');
+			exit();
+		}
+}
 
 if(count( $_POST) > 0)
 {
-	// Store order in database
-	$mysqli = new mysqli($db_server, $db_user, $db_password, $db_database);
-	
 	// If email address doesn't already exist, create the user
 	$result = $mysqli->query('SELECT id, name FROM user WHERE email = "' . trim($_POST['email']) . '" LIMIT 1');
 	if($result->num_rows > 0)
@@ -24,13 +45,38 @@ if(count( $_POST) > 0)
 		$user_id = uniqid("1");
 		$mysqli->query('INSERT INTO user (id, name, email) VALUES ("' . $user_id . '", "' . trim($_POST['name']) . '", "' . trim($_POST['email']) . '")');		
 	}
+	
 	$result->close();
 	
 	// Add My Item
 	$butty_id = uniqid("3");
 	$mysqli->query('INSERT INTO butty (id, user_id, buttyrun_id, product) VALUES ("' . $butty_id . '", "' . $user_id . '", "' . $_POST["buttyrun_id"] . '", "' . trim($_POST["product"]) . '")');
 	
-	$mysqli->close();
+	// Send email to others
+	$result = $mysqli->query('SELECT * FROM buttyrun WHERE id = "' . $_POST["buttyrun_id"] . '"');
+	$row = $result->fetch_assoc();
+	$vendor = $row["vendor"];
+	$collect = strtotime($row["collect"]);
+	$collect_date = date('d/m/Y', $collect);
+	$collect_time = date('H:i', $collect);
+	$deadline = strtotime($row["deadline"]);
+	$deadline_date = date('d/m/Y', $deadline);
+	$deadline_time = date('H:i', $deadline);
+	$result->close();
+	
+	$subject = 'There\'s a ButtyRun to ' . $vendor . ' on ' . $collect_date . ' at ' . $collect_time;	
+	$message = 'Hi,' . "\r\n\r\n" . 'There\'s a ButtyRun to ' . $vendor . ' on ' . $collect_date . ' at ' . $collect_time . ' that I thought you might be interested in.' . "\r\n\r\n" . 'You can place your order at the link below until ' . $deadline_time . '.' . "\r\n\r\n" . $baseUrl . 'order/?b=' . $_POST["buttyrun_id"] . "\r\n\r\n" . 'Has someone missed out? Simply forward this email to them and they can join in too.' . "\r\n\r\n" . trim($_POST['name']) . "\r\n\r\n" . '--' . "\r\n". 'www.ButtyRunner.com' . "\r\n". 'Follow us on Twitter at http://twitter.com/buttyrunner';	
+	$headers = 'From: '. trim($_POST['email']) . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+	$invitees = explode("\r\n", trim($_POST['shout']));
+	
+	foreach($invitees as $invite){
+		if(!$devMode)
+		{
+			mail(trim($invite), $subject, $message, $headers);
+		}
+	}
+	
+	require_once("../inc/connectionClose.php");
 	
 	header('Location: ' . $baseUrl . 'order/thanks');
 	exit();
@@ -43,7 +89,7 @@ if(count( $_POST) > 0)
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Order | ButtyRunner (alpha)</title> <!-- Bootstrap -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="bootstrap-theme.min.css"/>
+	<link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
 	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -59,13 +105,16 @@ if(count( $_POST) > 0)
 	  ?>
 		  
 	  <div class="container">
-	  <h1>Your Order</h1>
+	  <h1>Order</h1>
 	  </div>
 	  
 	  <div class="container">
 		
 		  <div class="row">
        		  <div class="col-md-8">
+				  
+			  	  <p>There's a ButtyRun to <b><?=$vendor?></b> on <b><?=$collect_date?></b> at <b><?=$collect_time?></b>. You can place your order using the form below until <b><?=$deadline_date?></b> at <b><?=$deadline_time?></b>.</p>
+				  	
 					  
 					  <div class="well">
 					                <form class="bs-example form-horizontal" method="post" action="./">
@@ -96,9 +145,18 @@ if(count( $_POST) > 0)
   					                    </div>
 										
 					                    <div class="form-group">
+					                      <label for="shout" class="col-lg-2 control-label">Invite others</label>
+					                      <div class="col-lg-10">
+					                        <textarea class="form-control" rows="3" id="shout" name="shout"></textarea>
+					                        <span class="help-block">Enter the email addresses of other people you're inviting, one per line.</span>
+					                      </div>
+					                    </div>
+										
+					                    <div class="form-group">
 					                      <div class="col-lg-10 col-lg-offset-2">
 					                        <button class="btn btn-default">Cancel</button>
 					                        <button type="submit" class="btn btn-primary">Submit</button>
+											<p style="font-size: 8px; margin-top: 10px;">* By clicking submit you agree to recieve emails from ButtyRunner for the purpose of running the system and a few other emails from us, certainly not from third parties though. You also take responsibilty for the emails generated to your invitees. We only store the email addresses of uses who've ordered via ButtyRun.</p>
 					                      </div>
 					                    </div>
 										
@@ -126,3 +184,6 @@ if(count( $_POST) > 0)
 </html>
 
 <html>
+<?php
+require_once("../inc/connectionClose.php");	
+?>

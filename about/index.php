@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About | ButtyRunner (alpha)</title> <!-- Bootstrap -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="bootstrap-theme.min.css"/>
+	<link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
 	
 	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -29,7 +29,7 @@
 	  </div>
 	  <h2>What is it?</h2>
 	  <p>ButtyRunner started as a joke between my work colleagues when organising the weekly trip to get bacon sandwiches in became more complicated. </p>
- 	  <p>The idea is simple, you let your friends know (by email) that you're going to a shop to get a sandwich, a coffee (or anything really). You inlucde when and how much notice you need. Your friends then add their order to the list.</p> 
+ 	  <p>The idea is simple, you let your friends know (by email) that you're going to a shop to get a sandwich, a coffee (or anything really). You include when and how much notice you need. Your friends then add their order to the list.</p> 
 	  <h2>What's "alpha" all about?</h2>
 	  <p>This service is new, very NEW! It's intended to test the basics and encourage feedback to allow the product to evolve. Use the <a href="/contact">contact page</a>, <a href="http://twitter.com/buttyrunner" target="_blank">Twitter</a> or <a href="http://www.facebook.com/buttyrunner"  target="_blank">Facebook</a> to let me know what you think.</p>
 	  <h2>Is it free?</h2>
